@@ -4,6 +4,7 @@ from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String, ForeignKey
 from sqlalchemy.orm import relationship
 from os import getenv
+from models.__init__ import storage
 
 
 class State(BaseModel, Base):
@@ -23,7 +24,7 @@ class State(BaseModel, Base):
             current State
             """
             city_list = []
-            for city_obj in models.storage.all("City").values():
+            for city_obj in storage.all("City").values():
                 if city_obj.state.id == self.id:
                     city_list.append(city_obj)
             return city_list
