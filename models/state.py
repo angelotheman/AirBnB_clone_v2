@@ -16,5 +16,17 @@ class State(BaseModel, Base):
     else:
         name = ""
 
+        @projecty
+        def cities(self):
+            """
+            Return the list of city objects from storage linked to the
+            current State
+            """
+            city_list = []
+            for city_obj in models.storage.all("City").values():
+                if city_obj.state.id == self.id:
+                    city_list.append(city_obj)
+            return city_list
+
     def __init__(self, *args, **kwargs):
         super().__init__(args, **kwargs)

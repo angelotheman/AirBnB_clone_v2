@@ -63,3 +63,7 @@ class FileStorage:
         if obj:
             class_name = f"{obj.__class__.__name__}.{obj.id}"
             del FileStorage.__objects[class_name]
+
+    def close(self):
+        """Calls reload for desrializing"""
+        self.reload()
