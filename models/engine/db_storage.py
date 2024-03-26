@@ -20,7 +20,7 @@ classes = {
     "Amenity": Amenity,
     "Place": Place,
     "Review": Review
-    }
+}
 
 
 class DBStorage:
